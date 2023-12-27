@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta  name="viewport"  content="width=device-width, initial-scale=1.0">
+                
+<style>
+
+#DesiredTemperature.I
+{
+width: 100%;
+}
+
+label
+{
+align-items: center;
+margin-bottom: 5px;
+}
+
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+}
+
+header {
+background-color: #3498db;
+color: #fff;
+justify-content: space-between;
+padding: 2% 4%;
+}
+
+
+main {
+max-width: 80%;
+margin-left: 30%;
+margin-top: 5%;
+}
+
+section {
+background-color: #ecf0f1;
+padding: 2%;
+width: 50%;
+border-radius: 1%;
+box-shadow: 0 0 1% rgba(0, 0, 0, 0.1);
+}
+
+form {
+display: grid;
+grid-gap: 5%;
+}
+
+
+.BackBtn
+{
+padding: 0.5%;
+background-color: #2ecc71;
+color: #fff;
+border: none;
+border-radius: 1%;
+cursor: pointer;
+}
+
+.I{
+width: 100%;
+margin-bottom: 2%;
+}
+
+.submitData {
+padding: 2%;
+background-color: #2ecc71;
+color: #fff;
+border: none;
+border-radius: 1%;
+cursor: pointer;
+margin-top: 2%;
+display: block;
+margin-left: 40%;
+}
+
+button:hover {
+background-color: #27ae60;
+}
+
+.Selector {
+display: block;
+padding-top: 2% ;
+}
+
+.K
+{
+display: block;
+}
+</style>
+
+</head>
+<body>
+
+  <header>
+ <button id="backBtn"  class="BackBtn" >Nazad</button>
+    <h1>ClimateWatch</h1>
+ 
+
+
+  </header>
+
+
+  <main>
+
+
+
+
+<section>
+<h2>Postavke senzora</h2>
+
+  <label for="sensorName">Naziv</label>
+  <input type="text" class="I" id="sensorName" required>
+
+
+  <label for="desiredTemp">Željena temperatura</label>
+  <input type="float" class="I" id="WantedTemperature" required>
+
+  <label for="myCheckbox" >Automatsko isključivanje</label>
+  <input type="checkbox"  id="AutomaticOnOffH">
+
+<div class="Selector">
+  <label for="minuteSelector" class="K">Iduće uključivanje zakazano:</label>
+
+  <label for="hourSelector" >Sati:</label>
+  <select id="hourSelector"></select>
+
+  <label for="minuteSelector">Minuta</label>
+  <select id="minuteSelector"></select>
+
+</div>
+
+  <button id="SubmitData" class="submitData">Postavi senzor</button>
+
+</section>
+
+
+
+  </main>
+
+
+
+
+<!------IMPORTI I KONFIGURACIJSKA SESIJA SA FIREBASEOM------------------->
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAnKEeEVZgfdGqSnQIm_y648tUErdCSKq0",
+    authDomain: "iotproject-694dc.firebaseapp.com",
+    databaseURL: "https://iotproject-694dc-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "iotproject-694dc",
+    storageBucket: "iotproject-694dc.appspot.com",
+    messagingSenderId: "328507565976",
+    appId: "1:328507565976:web:8e3aac3b1097e367aa2ded"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+
+
+  import {getDatabase, ref, set, child, update, remove, get}
+  from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  const db=getDatabase();
+
+//------------References-------------->//
+
+var NameOfSensor=document.getElementById("sensorName");
+var ZeljenaTemp=document.getElementById("WantedTemperature");
+var SubmitBtn=document.getElementById("SubmitData");
+var broj=0;
+var DaNe=document.getElementById("AutomaticOnOffH");
+var turnOn=0;
+var turnOff=0;
+var backBtn=document.getElementById("backBtn");
+const hourSelector = document.getElementById('hourSelector');
+const minuteSelector = document.getElementById('minuteSelector');
+    
+
+     // Function to populate the time options in a select element
+    // Function to populate options in the select element
+   
+
+        function populateOptions(selectElement, start, end) {
+            for (let i = start; i <= end; i++) {
+              const option = document.createElement('option');
+                option.value = i.toString().padStart(2, '0');
+                option.text = i.toString().padStart(2, '0');
+                selectElement.appendChild(option);
+            }
+        }
+
+
+        // Populate options for hours (1-23) and minutes (1-60)
+        populateOptions(hourSelector, 0, 23);
+        populateOptions(minuteSelector, 1, 60);
+
+
+
+function InsertData()
+{
+  if(DaNe.checked===true)
+  {
+broj=1;
+  }
+
+set(ref(db,"WantedTemperature/"),
+
+{
+  WantTemp: parseFloat(ZeljenaTemp.value),
+  nmb: broj,
+  Name: NameOfSensor.value,
+
+
+})
+.then(()=>{
+
+alert("Podaci poslani");
+
+})
+.catch((error)=>{
+  alert("neuspjesno, error"+error);
+})
+const selectedHour = hourSelector.value;
+      const selectedMinute = minuteSelector.value;
+
+      // Store in local storage
+      localStorage.setItem('selectedHour', selectedHour);
+      localStorage.setItem('selectedMinute', selectedMinute);
+
+}
+
+SubmitBtn.addEventListener('click',InsertData);
+
+function goBack()
+{
+// Navigate back to index.html
+window.location.href = 'index.html';
+ }
+
+ backBtn.addEventListener('click',goBack);
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
