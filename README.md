@@ -42,17 +42,14 @@ Welcome to ClimateWatch, an IoT project developed as part of the IoT course at F
 
 ## Usage
 
-1. **Dashboard:**
-   - The web-based dashboard displays real-time temperature data and allows you to interact with the system.
-
-2. **Temperature-Based Automation:**
+1. **Temperature-Based Automation:**
    - Set temperature thresholds to automatically control devices.
    - Define specific activation and deactivation temperatures as per your requirements.
 
-3. **Scheduled Operation:**
+2. **Scheduled Operation:**
    - Use the scheduler feature to set specific times for device activation.
 
-4. **Manual Control:**
+3. **Manual Control:**
    - Toggle devices on or off manually through the dashboard.
 
 
