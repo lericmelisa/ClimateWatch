@@ -1,118 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+# ClimateWatch IoT Project
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClimateWatch IoT Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+## Overview
 
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+Welcome to ClimateWatch, an IoT project developed as part of the IoT course at Faculty of Inromation technologies. This project utilizes the ESP8266 microcontroller and DS18B20 temperature sensor to monitor and control temperature, providing a flexible and efficient solution for device automation in various scenarios.
 
-        section {
-            margin-bottom: 30px;
-        }
+## Features
 
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
+1. **Temperature Monitoring:**
+   - The DS18B20 temperature sensor is employed to accurately monitor the ambient temperature.
+   - Real-time temperature data is collected and made available for analysis.
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+2. **Device Control:**
+   - ClimateWatch allows you to control devices based on temperature conditions.
+   - Turn devices on or off automatically when the temperature crosses specified thresholds.
 
-        li {
-            margin-bottom: 10px;
-        }
+3. **Scheduled Activation:**
+   - Set specific times for devices to turn on automatically, providing a scheduled and energy-efficient operation.
 
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 12px;
-        }
-    </style>
-</head>
+4. **Manual Control:**
+   - Enjoy the flexibility of manually turning devices on or off, regardless of temperature conditions or schedules.
 
-<body>
+## Components Used
 
-    <header>
-        <h1>ClimateWatch IoT Project</h1>
-    </header>
+- **ESP8266 Microcontroller:** The brain of the system, responsible for collecting data and controlling devices.
+- **DS18B20 Temperature Sensor:** Provides accurate temperature readings for decision-making.
 
-    <section>
-        <h2>Overview</h2>
-        <p>Welcome to ClimateWatch, an IoT project developed as part of the IoT course at Faculty of Information Technologies. This project utilizes the ESP8266 microcontroller and DS18B20 temperature sensor to monitor and control temperature, providing a flexible and efficient solution for device automation in various scenarios.</p>
-    </section>
+## Setup Instructions
 
-    <section>
-        <h2>Features</h2>
-        <ul>
-            <li><strong>Temperature Monitoring:</strong> The DS18B20 temperature sensor is employed to accurately monitor the ambient temperature. Real-time temperature data is collected and made available for analysis.</li>
-            <li><strong>Device Control:</strong> ClimateWatch allows you to control devices based on temperature conditions. Turn devices on or off automatically when the temperature crosses specified thresholds.</li>
-            <li><strong>Scheduled Activation:</strong> Set specific times for devices to turn on automatically, providing a scheduled and energy-efficient operation.</li>
-            <li><strong>Manual Control:</strong> Enjoy the flexibility of manually turning devices on or off, regardless of temperature conditions or schedules.</li>
-        </ul>
-    </section>
+1. **Hardware Setup:**
+   - Connect the ESP8266 microcontroller and DS18B20 temperature sensor.
 
-    <section>
-        <h2>Components Used</h2>
-        <ul>
-            <li><strong>ESP8266 Microcontroller:</strong> The brain of the system, responsible for collecting data and controlling devices.</li>
-            <li><strong>DS18B20 Temperature Sensor:</strong> Provides accurate temperature readings for decision-making.</li>
-          
-        </ul>
-    </section>
+2. **Software Configuration:**
+   - Upload the provided Arduino sketch to the ESP8266 using the Arduino IDE.
+   - Modify the configuration parameters in the sketch to match your preferences (Wi-Fi credentials, device IDs, temperature thresholds, etc.).
 
-    <section>
-        <h2>Setup Instructions</h2>
-        <ol>
-            <li><strong>Hardware Setup:</strong>
-                <ul>
-                    <li>Connect the ESP8266 microcontroller and DS18B20 temperature sensor.</li>
-                </ul>
-            </li>
-            <li><strong>Software Configuration:</strong>
-                <ul>
-                    <li>Upload the provided Arduino sketch to the ESP8266 using the Arduino IDE.</li>
-                    <li>Modify the configuration parameters in the sketch to match your preferences (Wi-Fi credentials, device IDs, temperature thresholds, etc.).</li>
-                </ul>
-            </li>
-            <li><strong>Power On:</strong>
-                <ul>
-                    <li>Power up the system and wait for the ESP8266 to connect to the Wi-Fi network.</li>
-                </ul>
-            </li>
-            <li><strong>Accessing ClimateWatch:</strong>
-                <ul>
-                    <li>Once connected, access the ClimateWatch dashboard through a web browser using the assigned IP address or domain.</li>
-                </ul>
-            </li>
-        </ol>
-    </section>
+3. **Power On:**
+   - Power up the system and wait for the ESP8266 to connect to the Wi-Fi network.
 
-    <section>
-        <h2>Usage</h2>
-        <ul>
-            <li><strong>Dashboard:</strong> The web-based dashboard displays real-time temperature data and allows you to interact with the system.</li>
-            <li><strong>Temperature-Based Automation:</strong> Set temperature thresholds to automatically control devices. Define specific activation and deactivation temperatures as per your requirements.</li>
-            <li><strong>Scheduled Operation:</strong> Use the scheduler feature to set specific times for device activation.</li>
-            <li><strong>Manual Control:</strong> Toggle devices on or off manually through the dashboard.</li>
-        </ul>
-    </section>
-    <footer>
-        <p>Thank you for using ClimateWatch!</p>
-    </footer>
+4. **Accessing ClimateWatch:**
+   - Once connected, access the ClimateWatch dashboard through a web browser using the assigned IP address or domain.
 
-</body>
+## Usage
 
-</html>
+1. **Dashboard:**
+   - The web-based dashboard displays real-time temperature data and allows you to interact with the system.
+
+2. **Temperature-Based Automation:**
+   - Set temperature thresholds to automatically control devices.
+   - Define specific activation and deactivation temperatures as per your requirements.
+
+3. **Scheduled Operation:**
+   - Use the scheduler feature to set specific times for device activation.
+
+4. **Manual Control:**
+   - Toggle devices on or off manually through the dashboard.
+
+
+Thank you for using ClimateWatch!
