@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to ClimateWatch, an IoT project developed as part of the IoT course at Faculty of Inromation technologies. This project utilizes the ESP8266 microcontroller and DS18B20 temperature sensor to monitor and control temperature, providing a flexible and efficient solution for device automation in various scenarios.
+Welcome to ClimateWatch, an IoT project developed as part of the IoT course at Faculty of Information technologies. This project utilizes the ESP8266 microcontroller and DS18B20 temperature sensor to monitor and control temperature, providing a flexible and efficient solution for device automation in various scenarios.
 
 ## Features
 
