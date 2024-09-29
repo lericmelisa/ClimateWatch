@@ -6,18 +6,21 @@ Welcome to ClimateWatch, an IoT project developed as part of the IoT course at F
 
 ## Features
 
-1. **Temperature Monitoring:**
+1. **Control Panel**
+   This is a web application (HTML and JS) accessible from a browser, allowing users to control climate settings remotely.
+
+3. **Temperature Monitoring:**
    - The DS18B20 temperature sensor is employed to accurately monitor the ambient temperature.
    - Real-time temperature data is collected and made available for analysis.
 
-2. **Device Control:**
+4. **Device Control:**
    - ClimateWatch allows you to control devices based on temperature conditions.
    - Turn devices on or off automatically when the temperature crosses specified thresholds.
 
-3. **Scheduled Activation:**
+5. **Scheduled Activation:**
    - Set specific times for devices to turn on automatically, providing a scheduled and energy-efficient operation.
 
-4. **Manual Control:**
+6. **Manual Control:**
    - Enjoy the flexibility of manually turning devices on or off, regardless of temperature conditions or schedules.
 
 ## Components Used
