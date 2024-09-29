@@ -7,6 +7,7 @@ Welcome to ClimateWatch, an IoT project developed as part of the IoT course at F
 ## Features
 
 1. **Control Panel**
+   
    This is a web application (HTML and JS) accessible from a browser, allowing users to control climate settings remotely.
 
 3. **Temperature Monitoring:**
